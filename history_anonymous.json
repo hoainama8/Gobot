@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "xin chao"
+  },
+  {
+    "role": "model",
+    "content": "{\"id\":\"v1_ChdpWDMxYVlEVUZzT1owLWtQOC1qbzhRZxIXaVgzMWFZRFVGc09aMC1rUDgtam84UWc\",\"status\":\"completed\",\"outputs\":[{\"signature\":\"EjQKMgEMOdbHVM5Aq4ugm/cZxi+2vZ2HsAqvY3kNEetJ3uvVXQWSPDcmrn1CsFm/EDSrUL3h\",\"type\":\"thought\"},{\"text\":\"{\\n  \\\"is_order_completed\\\": false,\\n  \\\"order_info\\\": {\\n    \\\"customer\\\": {\\n      \\\"id\\\": null,\\n      \\\"name\\\": null,\\n      \\\"phone\\\": null\\n    },\\n    \\\"dining_option\\\": null,\\n    \\\"items\\\": [],\\n    \\\"note\\\": null,\\n    \\\"table_number\\\": null\\n  },\\n  \\\"text\\\": \\\"Dạ, em chào Anh/Chị ạ! Em là nhân viên phục vụ AI của quán. Anh/Chị muốn dùng món tại chỗ hay mang về ạ? Em có thể giúp gì cho mình đặt món không ạ?\\\"\\n} \",\"type\":\"text\"}],\"usage\":{\"total_tokens\":744,\"total_input_tokens\":606,\"input_tokens_by_modality\":[{\"modality\":\"text\",\"tokens\":606}],\"total_cached_tokens\":0,\"total_output_tokens\":138,\"total_tool_use_tokens\":0,\"total_thought_tokens\":0},\"role\":\"model\",\"created\":\"2026-05-02T04:29:00Z\",\"updated\":\"2026-05-02T04:29:00Z\",\"service_tier\":\"standard\",\"object\":\"interaction\",\"model\":\"gemini-3-flash-preview\"}"
+  }
+]

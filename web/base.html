@@ -1,0 +1,36 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{block "title" .}}AI Manager{{end}}</title> {{/* [SUA] */}}
+
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel='stylesheet' href='/static/main.css'>
+    <style>
+        .htmx-indicator { display: none; }
+        .htmx-request .htmx-indicator { display: inline; }
+        .htmx-request.htmx-indicator { display: inline; }
+    </style>
+</head>
+<body>
+    {{block "nav" .}} {{end}}
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full"> {{/* [SUA] */}}
+        <div id="main-content">
+            {{block "content" .}}
+                <h1 class="text-center text-slate-500 mt-20">Chao mung ban quay lai!</h1> {{/* [SUA] */}}
+            {{end}}
+        </div>
+    </main>
+
+    <footer class="mt-auto py-6 border-t bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
+            &copy; 2026 Nam Hai AI Startup. Powered by Go & HTMX.
+        </div>
+    </footer>
+</body>
+</html>
+{{end}}

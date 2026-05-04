@@ -1,0 +1,17 @@
+./form.go
+./handlers.go
+./helpers.go
+./main.go
+./middlerware.go
+./page_account.go
+./page_chat.go
+./page_login.go
+./page_orders.go
+./page_signup.go
+./route_chat.go
+./route_login.go
+./route_logout.go
+./route_signup.go
+./session.go
+./template.go
+./template_data.go

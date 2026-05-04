@@ -1,0 +1,23 @@
+{{define "title"}}Chat{{end}} {{/* [THEM_MOI] */}}
+{{define "content"}}
+<section id="chat"> {{/* [SUA] */}}
+  <div class="flex items-center justify-between mb-3"> {{/* [SUA] */}}
+    <h2 class="text-lg font-semibold">Chat</h2>
+    <span class="hint">Webchat assistant</span>
+  </div>
+
+  <div id="chat-result" class="result">
+    <span class="hint">Phan hoi se hien o day.</span>
+  </div>
+
+  <form class="chat-form"
+        hx-post="/chat"
+        hx-target="#chat-result"
+        hx-trigger="submit"
+        hx-swap="beforeend"
+        hx-on::after-request="this.reset()">
+    <input name="message" type="text" placeholder="Nhap tin nhan..." required />
+    <button type="submit">Gui</button>
+  </form>
+</section>
+{{end}}

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Hai",
+    "phone": "0223456789",
+    "passwd": "$2a$10$WQ1wyUykec5cR9nYeV87LeGQEIELoY3U3Xh4rZIxjsIZ9A3rLuySa",
+    "webchat": "wc105355",
+    "session_cookie": "f9aa97d73d277d8d09fbb4ec794eb8ce5f8d2fe5ed413dd717a7b0ef8adf30a1"
+  },
+  {
+    "name": "thanh",
+    "phone": "0774883648",
+    "passwd": "$2a$10$8ajwa0eUR7/ZbtSJW6fKfeLKhQtpAZi4HEpP06UrAxGhzmO/VOWiq",
+    "webchat": "wc654080",
+    "session_cookie": "eab68e7e68a7a4a096f19ac4f162d3de450aac33c68ee11c867d2d9c66828576"
+  }
+]

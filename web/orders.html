@@ -1,0 +1,28 @@
+{{define "title"}}Lich Su Don Hang{{end}} {{/* [THEM_MOI] */}}
+{{define "content"}}
+<section class="result"> {{/* [THEM_MOI] */}}
+  <h2 class="text-lg font-semibold mb-3">Lich Su Dat Hang</h2>
+  {{if .Orders}}
+  <table style="width:100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th style="text-align:left; border-bottom:1px solid #e7d4bc; padding:8px;">Ma Don</th>
+        <th style="text-align:left; border-bottom:1px solid #e7d4bc; padding:8px;">Trang Thai</th>
+        <th style="text-align:left; border-bottom:1px solid #e7d4bc; padding:8px;">So Mon</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{range .Orders}}
+      <tr>
+        <td style="padding:8px; border-bottom:1px solid #f1e4d3;">{{.IDOrder}}</td>
+        <td style="padding:8px; border-bottom:1px solid #f1e4d3;">{{.Status}}</td>
+        <td style="padding:8px; border-bottom:1px solid #f1e4d3;">{{.Count}}</td>
+      </tr>
+      {{end}}
+    </tbody>
+  </table>
+  {{else}}
+  <p class="hint">Chua co don hang trong data/order/order.json</p>
+  {{end}}
+</section>
+{{end}}

@@ -1,0 +1,22 @@
+[
+  {
+    "id_order": "OD-1777669946497722200",
+    "table_number": 4,
+    "dining_option": "tai cho",
+    "items": [
+      {
+        "name": "cà phê",
+        "quantity": 1,
+        "price": null
+      }
+    ],
+    "customer": {
+      "id": "anonymous",
+      "name": null,
+      "phone": null
+    },
+    "status": "new",
+    "note": null,
+    "payment_qr_url": "https://api.qrserver.com/v1/create-qr-code/?size=240x240\u0026data=Thanh+toan+don+hang+OD-1777669946497722200"
+  }
+]

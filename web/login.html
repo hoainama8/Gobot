@@ -1,0 +1,29 @@
+{{define "title"}}Login{{end}}
+{{define "content"}}
+<form action='/login' method='POST' novalidate>
+<div class="text-xl font-semibold mb-2">Dang nhap</div> {{/* [SUA] */}}
+{{range .Form.NonFieldErrors}}
+<div class='error'>{{.}}</div>
+{{end}}
+<div>
+<label>Phone:</label>
+{{with .Form.FieldErrors.phone}}
+<label class='error'>{{.}}</label>
+{{end}}
+<input type='text' name='phone' value='{{.Form.Phone}}' placeholder='Nhap so dien thoai'> {{/* [SUA] */}}
+</div>
+<div>
+<label>Password:</label>
+{{with .Form.FieldErrors.passwd}}
+<label class='error'>{{.}}</label>
+{{end}}
+<input type='password' name='passwd' placeholder='Nhap mat khau'> {{/* [SUA] */}}
+</div>
+<div>
+<input type='submit' value='Login'>
+</div>
+<div>
+<a href='/signup'>Need an account? Sign up</a>
+</div>
+</form>
+{{end}}

@@ -1,0 +1,40 @@
+{{define "nav"}}
+{{if .IsAuthen}}
+
+<nav class="bg-white/90 shadow-sm border-b sticky top-0 z-50"> {{/* [SUA] */}}
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold">NH</span>
+                </div>
+                <span class="text-xl font-bold tracking-tight">AI Manager</span>
+            </div>
+
+            <div class="hidden md:flex items-center gap-6 whitespace-nowrap"> {{/* [SUA] */}}
+                <a href="/chat" class="text-gray-600 hover:text-blue-600 font-medium">Ho Tro AI</a>
+                {{if .UserID}}
+                <a href="/account" class="text-gray-600 hover:text-blue-600 font-medium">Tai Khoan</a> {{/* [SUA] */}}
+                <a href="/orders" class="text-gray-600 hover:text-blue-600 font-medium">Lich Su Don</a> {{/* [THEM_MOI] */}}
+                <form action="/logout" method="POST" class="inline"> {{/* [THEM_MOI] */}}
+                    <button type="submit" class="text-gray-600 hover:text-blue-600 font-medium bg-transparent border-0 p-0">Logout</button> {{/* [THEM_MOI] */}}
+                </form> {{/* [THEM_MOI] */}}
+                {{else}}
+                <a href="/signup" class="text-gray-600 hover:text-blue-600 font-medium">Signup</a>
+                <a href="/login" class="text-gray-600 hover:text-blue-600 font-medium">Login</a>
+                {{end}}
+            </div>
+
+            <div class="flex items-center gap-2 text-sm font-medium text-gray-500"> {{/* [SUA] */}}
+                <span class="htmx-indicator animate-spin h-5 w-5 border-2 border-blue-600 border-t-transparent rounded-full"></span>
+                {{if .UserID}}
+                <span>Webchat: {{.UserID}}</span>
+                {{else}}
+                <span>Guest</span>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</nav>
+{{end}}
+{{ end}}
