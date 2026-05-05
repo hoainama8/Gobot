@@ -21,7 +21,7 @@ type Account struct {
 	SessionCookie string `json:"session_cookie"` // [THEM_MOI]
 }
 
-const AccountsFilePath = "account/accounts.json" // [THEM_MOI]
+const AccountsFilePath = "data/account/accounts.json" // [THEM_MOI]
 
 func LoadAccounts() ([]Account, error) { // [THEM_MOI]
 	data, err := os.ReadFile(AccountsFilePath)
