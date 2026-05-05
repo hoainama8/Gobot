@@ -1,0 +1,27 @@
+[
+  {
+    "id_order": "OD-1777942845871027100",
+    "table_number": 1,
+    "dining_option": "tai cho",
+    "items": [
+      {
+        "name": "Ca phe Den (Da/Nong)",
+        "quantity": 1,
+        "price": null
+      }
+    ],
+    "customer": {
+      "webchat": "anonymous",
+      "name": null,
+      "phone": null
+    },
+    "status": "new",
+    "pay": {
+      "status": "unpaid",
+      "amount": 0,
+      "pay_id": null
+    },
+    "note": null,
+    "payment_qr_url": "https://api.qrserver.com/v1/create-qr-code/?size=240x240\u0026data=Thanh+toan+don+hang+OD-1777942845871027100"
+  }
+]

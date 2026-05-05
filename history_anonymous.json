@@ -1,10 +1,14 @@
 [
   {
     "role": "user",
-    "content": "xin chao"
+    "content": "cà phê đen đá"
   },
   {
     "role": "model",
-    "content": "{\"id\":\"v1_ChdpWDMxYVlEVUZzT1owLWtQOC1qbzhRZxIXaVgzMWFZRFVGc09aMC1rUDgtam84UWc\",\"status\":\"completed\",\"outputs\":[{\"signature\":\"EjQKMgEMOdbHVM5Aq4ugm/cZxi+2vZ2HsAqvY3kNEetJ3uvVXQWSPDcmrn1CsFm/EDSrUL3h\",\"type\":\"thought\"},{\"text\":\"{\\n  \\\"is_order_completed\\\": false,\\n  \\\"order_info\\\": {\\n    \\\"customer\\\": {\\n      \\\"id\\\": null,\\n      \\\"name\\\": null,\\n      \\\"phone\\\": null\\n    },\\n    \\\"dining_option\\\": null,\\n    \\\"items\\\": [],\\n    \\\"note\\\": null,\\n    \\\"table_number\\\": null\\n  },\\n  \\\"text\\\": \\\"Dạ, em chào Anh/Chị ạ! Em là nhân viên phục vụ AI của quán. Anh/Chị muốn dùng món tại chỗ hay mang về ạ? Em có thể giúp gì cho mình đặt món không ạ?\\\"\\n} \",\"type\":\"text\"}],\"usage\":{\"total_tokens\":744,\"total_input_tokens\":606,\"input_tokens_by_modality\":[{\"modality\":\"text\",\"tokens\":606}],\"total_cached_tokens\":0,\"total_output_tokens\":138,\"total_tool_use_tokens\":0,\"total_thought_tokens\":0},\"role\":\"model\",\"created\":\"2026-05-02T04:29:00Z\",\"updated\":\"2026-05-02T04:29:00Z\",\"service_tier\":\"standard\",\"object\":\"interaction\",\"model\":\"gemini-3-flash-preview\"}"
+    "content": "{\"id\":\"v1_ChdxYVA1YVlPeks4QzB2cjBQbjc2UmtBSRIXcWFQNWFZT3pLOEMwdnIwUG43NlJrQUk\",\"status\":\"requires_action\",\"outputs\":[{\"signature\":\"EjQKMgEMOdbHoqOPWV/m9x1HRDjYQdgSlUzv2FIAUASvDxzMNQWjUVtxEg35sdW3XvHNBhT0\",\"type\":\"thought\"},{\"id\":\"49t6pwfs\",\"type\":\"function_call\",\"name\":\"create_order\",\"arguments\":{\"table_number\":1,\"items\":[{\"name\":\"Ca phe Den (Da/Nong)\",\"quantity\":1}],\"from\":{\"phone\":\"{customer_phone}\",\"name\":\"{customer_name}\"},\"dining_option\":\"tai cho\"}}],\"usage\":{\"total_tokens\":978,\"total_input_tokens\":910,\"input_tokens_by_modality\":[{\"modality\":\"text\",\"tokens\":910}],\"total_cached_tokens\":0,\"total_output_tokens\":68,\"total_tool_use_tokens\":0,\"total_thought_tokens\":0},\"role\":\"model\",\"created\":\"2026-05-05T08:00:45Z\",\"updated\":\"2026-05-05T08:00:45Z\",\"service_tier\":\"standard\",\"object\":\"interaction\",\"model\":\"gemini-3-flash-preview\"}"
+  },
+  {
+    "role": "model",
+    "content": "{\"id\":\"v1_ChdxYVA1YVlPeks4QzB2cjBQbjc2UmtBSRIXcnFQNWFiRzZGT2lEMWU4UG41dTA4QU0\",\"status\":\"completed\",\"outputs\":[{\"signature\":\"EjQKMgEMOdbHj5pQYsMdCp8jeNDs6sC93yFTQGMYCNsf24G3OGH7ionFRZnFGRKzpDZdQcoH\",\"type\":\"thought\"},{\"text\":\"{\\\"text\\\":\\\"Da, em da ghi nhan don hang 01 Ca phe Den (Da/Nong) cua minh tai ban so 1 a. Don hang cua minh dang duoc chuan bi, anh/chi vui long doi trong giay lat nhe.\\\",\\\"photourl\\\":[\\\"https://api.qrserver.com/v1/create-qr-code/?size=240x240\u0026data=Thanh+toan+don+hang+OD-1777942845871027100\\\"],\\\"videourl\\\":[]}\",\"type\":\"text\"}],\"usage\":{\"total_tokens\":976,\"total_input_tokens\":848,\"input_tokens_by_modality\":[{\"modality\":\"text\",\"tokens\":848}],\"total_cached_tokens\":0,\"total_output_tokens\":128,\"total_tool_use_tokens\":0,\"total_thought_tokens\":0},\"role\":\"model\",\"created\":\"2026-05-05T08:00:51Z\",\"updated\":\"2026-05-05T08:00:51Z\",\"service_tier\":\"standard\",\"object\":\"interaction\",\"model\":\"gemini-3-flash-preview\"}"
   }
 ]
