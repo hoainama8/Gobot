@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{block "title" .}}AI Manager{{end}}</title> {{/* [SUA] */}}
 
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel='stylesheet' href='/static/main.css'>
+    <script src="/static/js.main" defer></script> {{/* [THEM_MOI] */}}
     <style>
-        .htmx-indicator { display: none; }
-        .htmx-request .htmx-indicator { display: inline; }
-        .htmx-request.htmx-indicator { display: inline; }
+        .js-indicator { display: none; } {{/* [SUA] */}}
+        .is-loading .js-indicator { display: inline-flex; } {{/* [THEM_MOI] */}}
     </style>
 </head>
 <body>
@@ -28,7 +27,7 @@
 
     <footer class="mt-auto py-6 border-t bg-white">
         <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
-            &copy; 2026 Nam Hai AI Startup. Powered by Go & HTMX.
+            &copy; 2026 Nam Hai AI Startup. Powered by Go & JavaScript. {{/* [SUA] */}}
         </div>
     </footer>
 </body>

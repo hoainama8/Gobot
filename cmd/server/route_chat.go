@@ -1,6 +1,7 @@
 package main
 
 import (
+	"botai/botaigolang/internal/agent" // [THEM_MOI]
 	"encoding/json"
 	"fmt"
 	"html"
@@ -43,7 +44,8 @@ func (app *Application) chat(w http.ResponseWriter, r *http.Request) {
 		if order.Status == "" {
 			order.Status = "new" // [THEM_MOI]
 		}
-		order.PaymentQRURL = order.PaymentQRCodeURL() // [THEM_MOI]
+		order.NormalizePay()                                     // [THEM_MOI]
+		order.PaymentQRURL = agent.NewPaymentQRBuilder().BuildURL(order) // [SUA]
 		aiResp.OrderInfo = order                      // [THEM_MOI]
 		aiResp.PaymentQRURL = order.PaymentQRURL      // [THEM_MOI]
 		if !aiResp.OrderSaved {                       // [THEM_MOI]

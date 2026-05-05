@@ -10,12 +10,7 @@
     <span class="hint">Phan hoi se hien o day.</span>
   </div>
 
-  <form class="chat-form"
-        hx-post="/chat"
-        hx-target="#chat-result"
-        hx-trigger="submit"
-        hx-swap="beforeend"
-        hx-on::after-request="this.reset()">
+  <form id="chat-form" class="chat-form" action="/chat" method="post"> {{/* [SUA] */}}
     <input name="message" type="text" placeholder="Nhap tin nhan..." required />
     <button type="submit">Gui</button>
   </form>

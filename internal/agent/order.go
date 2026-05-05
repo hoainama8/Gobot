@@ -22,9 +22,9 @@ type OrderInfo struct {
 	PaymentQRURL string   `json:"payment_qr_url"` // [THEM_MOI]
 }
 type pay struct {
-	Status string `json:"status"`
-	Amount int    `json:"amount"`
-	PayID  string `json:"pay_id"`
+	Status string  `json:"status"`
+	Amount *int    `json:"amount"`
+	PayID  *string `json:"pay_id"`
 }
 
 type item struct {
@@ -38,6 +38,8 @@ type customer struct {
 	Name    *string `json:"name"`
 	Phone   *string `json:"phone"`
 }
+
+type PaymentQRBuilder struct{} // [THEM_MOI]
 
 func NewOrder() *OrderInfo {
 	return &OrderInfo{}
@@ -86,6 +88,15 @@ func (a *Agent) CreateOrderTool() any { // [THEM_MOI]
 					"type":        []any{"string", "null"},
 					"description": "Ghi chu cua khach neu co.",
 				},
+				"pay": map[string]any{ // [THEM_MOI]
+					"type":        "object",
+					"description": "Thong tin thanh toan cua don hang.",
+					"properties": map[string]any{
+						"status": map[string]any{"type": "string"},
+						"amount": map[string]any{"type": []any{"integer", "null"}},
+						"pay_id": map[string]any{"type": []any{"string", "null"}},
+					},
+				},
 			},
 			"required": []string{"dining_option", "items"},
 		},
@@ -104,7 +115,8 @@ func (a *Agent) ExecuteCreateOrder(arguments json.RawMessage, userID string) (ma
 	if order.Status == "" {
 		order.Status = "new"
 	}
-	order.PaymentQRURL = order.PaymentQRCodeURL()
+	order.NormalizePay()                                  // [THEM_MOI]
+	order.PaymentQRURL = NewPaymentQRBuilder().BuildURL(order) // [SUA]
 	if err := NewOrder().Add_order(order); err != nil {
 		return nil, OrderInfo{}, err
 	}
@@ -151,12 +163,33 @@ func (a OrderInfo) TotalAmount() int { // [THEM_MOI]
 	return total
 }
 
-func (a OrderInfo) PaymentQRCodeURL() string { // [THEM_MOI]
-	orderID := a.ID_order
+func (a *OrderInfo) NormalizePay() { // [THEM_MOI]
+	if a.Pay.Amount == nil {
+		total := a.TotalAmount()
+		a.Pay.Amount = &total
+	}
+	if a.Pay.Status == "" {
+		a.Pay.Status = "unpaid"
+	}
+}
+
+func (a OrderInfo) PaymentAmount() int { // [THEM_MOI]
+	if a.Pay.Amount != nil && *a.Pay.Amount > 0 {
+		return *a.Pay.Amount
+	}
+	return a.TotalAmount()
+}
+
+func NewPaymentQRBuilder() *PaymentQRBuilder { // [THEM_MOI]
+	return &PaymentQRBuilder{}
+}
+
+func (b *PaymentQRBuilder) BuildURL(order OrderInfo) string { // [THEM_MOI]
+	orderID := order.ID_order
 	if orderID == "" {
 		orderID = fmt.Sprintf("OD-%d", time.Now().UnixNano())
 	}
-	amount := a.TotalAmount()
+	amount := order.PaymentAmount()
 	addInfo := fmt.Sprintf("Thanh toan don hang %s", orderID)
 	bankID := os.Getenv("PAYMENT_BANK_ID")
 	accountNo := os.Getenv("PAYMENT_ACCOUNT_NO")
@@ -176,6 +209,10 @@ func (a OrderInfo) PaymentQRCodeURL() string { // [THEM_MOI]
 		addInfo = fmt.Sprintf("%s - So tien %d VND", addInfo, amount)
 	}
 	return fmt.Sprintf("https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=%s", url.QueryEscape(addInfo))
+}
+
+func (a OrderInfo) PaymentQRCodeURL() string { // [SUA]
+	return NewPaymentQRBuilder().BuildURL(a) // [THEM_MOI]
 }
 
 func (a *OrderInfo) Add_order(neworder OrderInfo) error {
