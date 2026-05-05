@@ -1,0 +1,33 @@
+# [THEM_MOI] Go build outputs
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.coverprofile
+coverage.out
+
+# [THEM_MOI] Go workspace/cache
+bin/
+dist/
+vendor/
+
+# [THEM_MOI] Environment and local config
+.env
+.env.*
+!.env.example
+
+# [THEM_MOI] Editor/OS files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# [THEM_MOI] Logs and temporary files
+*.log
+tmp/
+temp/
